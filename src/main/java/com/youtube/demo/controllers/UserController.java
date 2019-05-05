@@ -47,7 +47,7 @@ public class UserController {
 		private boolean validate(User user) {
 			boolean isValid = true;
 			
-			if(user.getFirstName() == null) {
+			if(user.getFirstName() == "" || user.getFirstName() == null) {
 				isValid = false;
 			}
 			
