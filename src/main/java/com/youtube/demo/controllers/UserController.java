@@ -1,7 +1,9 @@
 package com.youtube.demo.controllers;
 
 import java.io.IOException;
+import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,18 +46,28 @@ public class UserController {
 			return new RestResponse(HttpStatus.OK.value(),"Operación exitosa");
 		}
 		
+		
+		@RequestMapping(value = "/getUsers", method = RequestMethod.GET)
+		public List<User> getUsers() {
+			return this.userService.findAll();		
+			
+		}
+		
+		
+		
+		
 		private boolean validate(User user) {
 			boolean isValid = true;
 			
-			if(user.getFirstName() == "" || user.getFirstName() == null) {
+			if(StringUtils.trimToNull(user.getFirstName()) == null) {
 				isValid = false;
 			}
 			
-			if(user.getFirstSurname() == null) {
+			if(StringUtils.trimToNull(user.getFirstSurname()) == null) {
 				isValid = false;
 			}
 			
-			if(user.getAddress() == null) {
+			if(StringUtils.trimToNull(user.getAddress()) == null) {
 				isValid = false;
 			}
 			return isValid;
