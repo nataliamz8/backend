@@ -17,7 +17,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User save(User user) {
-		// TODO Auto-generated method stub
 		return this.userRepository.save(user);
 	}
 
@@ -25,7 +24,13 @@ public class UserServiceImpl implements UserService {
 	public List<User> findAll() {
 		return this.userRepository.findAll();
 	}
-	
-	
+
+	//Cambió un poco respecto al titurial 10
+	@Override
+	public void deleteUser(Long id) {
+		this.userRepository.deleteById(id);
+		
+	}
+
 	
 }

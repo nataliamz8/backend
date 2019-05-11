@@ -6,6 +6,11 @@ import com.youtube.demo.model.User;
 
 public interface UserService {
 
+	/**
+	 * Guardar un usuario
+	 * @param user
+	 * @return el usuario guardado
+	 */
 	User save(User user);
 
 	/**
@@ -13,6 +18,12 @@ public interface UserService {
 	 * @return lista de usuarios
 	 */
 	List<User> findAll();
+
+	/**
+	 * Eliminar un usuario con id recibido
+	 * @param id
+	 */
+	void deleteUser(Long id);
 
 
 
